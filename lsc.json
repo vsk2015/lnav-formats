@@ -1,0 +1,53 @@
+{
+        "lsc_log" : {
+                "title"                 : "lsc log format",
+                "description"   : "Log format used by Lumina Controller",
+                "regex" : {
+                        "main"  : {
+                                "pattern" : "^(?<timestamp>\\d{4}-\\d{2}-\\d{2} \\d{2}:\\d{2}:\\d{2}(?:,\\d{3})?(?:[+-]\\d{4})?) (?:\\[(req=(?<req>[0-9a-f-]+)|=), org=(?<org>\\w*)\\] (?<alert_level>\\w+)  (?<module>[\\w.]+) - )?(?:\\|\\s+(?<alert>\\w+)\\s+)?(?<thread>\\|\\s+[0-9a-zA-Z-:\\s]+\\s+)?(?<sub_module>\\|\\s+[0-9a-zA-Z-]+\\s+)?(?<super_module>\\|\\s+[0-9a-zA-Z-.\\s]+\\s+)?(?<body>.*?)$"
+                        }
+                },
+                "level-field" : "alert",
+                "level" : {
+                        "info"  : "INFO",
+                        "error" : "ERROR",
+                        "warning" : "WARN",
+                        "debug" : "DEBUG"
+                },
+		"opid-field" : "thread",
+                "value" : {
+                        "req"                   : { "kind" : "string", "identifier" : true },
+                        "org"                   : { "kind" : "string", "identifier" : true },
+                        "alert_level"   : { "kind" : "string" },
+                        "module"                : { "kind" : "string", "identifier" : true },
+                        "alert"   : { "kind" : "string" },
+                        "thread"   : { "kind" : "string","identifier" : true },
+                        "sub_module"   : { "kind" : "string" },
+                        "super_module"   : { "kind" : "string" },
+                        "body"                  : { "kind" : "string" }
+                },
+                "sample" : [
+                        {
+                        "line"  : "2018-10-07 16:56:43,876 | INFO  | pool-2-thread-1  | FeaturesServiceImpl              | 6 - org.apache.karaf.features.core - 4.0.10 |   org.opendaylight.netconf.api/1.3.3"
+
+                        },
+                        {
+                        "line"  : "2018-10-07 16:56:58,515 | INFO  | pool-2-thread-1  | BlueprintBundleTracker           | 244 - org.opendaylight.controller.blueprint - 0.7.3 | Creating blueprint container for bundle org.opendaylight.controller.sal-binding-broker-impl_1.6.3 [262] with paths [bundleentry://262.fwk254749889/org/opendaylight/blueprint/binding-broker.xml]"
+
+                        },
+                        {
+                                "line"  : "2015-04-17 09:41:50,544 [=, org=] INFO  org.candlepin.guice.CustomizableModules - Found custom module module.config.katello"
+                        },
+                        {
+                                "line"  : "2015-04-17 09:41:56,320 [req=f91d4a84-020d-4874-9741-3979d0baf58d, org=] INFO  org.candlepin.common.filter.LoggingFilter - Request: verb=GET, uri=/candlepin/status"
+                        },
+                        {
+                                "line"  : "2015-04-17 09:42:39+0200 principalType=trusteduser principal=admin target=OWNER entityId=8ab219c64cc653a7014cc6545a6c0001 type=CREATED owner=8ab219c64cc653a7014cc6545a6c0001"
+                        },
+                        {
+                                "line"  : "2015-04-17 10:49:21,912 [req=ec7867ea-2501-4036-bb08-e2d830720cb5, org=npr_goep_hm_com] INFO  org.candlepin.common.filter.LoggingFilter - Response: status=200, content-type=\"application/json\", time=235ms"
+                        }
+                ]
+        }
+}
+
