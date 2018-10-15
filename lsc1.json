@@ -1,7 +1,7 @@
 {
         "lsc_log" : {
                 "title"                 : "lsc log format",
-                "description"   : "Log format used by Lumina Controller",
+                "description"   : "Log format used by lsc Controller",
                 "regex" : {
                         "main"  : {
                                 "pattern" : "^(?<timestamp>\\d{4}-\\d{2}-\\d{2} \\d{2}:\\d{2}:\\d{2}(?:,\\d{3})?(?:[+-]\\d{4})?) (?:\\[(req=(?<req>[0-9a-f-]+)|=), org=(?<org>\\w*)\\] (?<alert_level>\\w+)  (?<module>[\\w.]+) - )?(?:\\|\\s+(?<alert>\\w+)\\s+)?(?<thread>\\|\\s+[0-9a-zA-Z-:\\s]+\\s+)?(?<sub_module>\\|\\s+[0-9a-zA-Z-]+\\s+)?(?<super_module>\\|\\s+[0-9a-zA-Z-.\\s]+\\s+)?(?<body>.*?)$"
